@@ -112,8 +112,15 @@ public class UserController extends HttpServlet {
 			// 3. 응답할 json 데이터를 생성
 			CommonRespDto<String> commonRespDto = new CommonRespDto<>();
 			commonRespDto.setStatusCode(result);
+			commonRespDto.setData("성공");
 			Gson gson = new Gson();
 			String respData = gson.toJson(commonRespDto);
+			
+			System.out.println("respData : " + respData);
+			PrintWriter out = response.getWriter();
+			out.print(respData);
+			out.flush();
+			
 		}
 	}
 

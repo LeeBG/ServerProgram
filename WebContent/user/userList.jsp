@@ -22,9 +22,7 @@
 					<td>${user.role}</td>
 					<td>
 					<c:if test="${sessionScope.principal.username == 'admin' || sessionScope.principal.id == user.id}">
-					<a
-						href="<%=request.getContextPath()%>/user?cmd=delete&id=${user.id}"
-						class="btn btn-primary">삭제</a>
+						<button onClick="deleteById(${user.id})" class="btn btn-danger">삭제</button>
 					</c:if>
 				
 					</td>
@@ -33,6 +31,8 @@
 		</c:forEach>
 	</table>
 </div>
-<script src="/js/delete.js"></script>
+<script src="/serverproject/js/delete.js">
+
+</script>
 </body>
 </html>
