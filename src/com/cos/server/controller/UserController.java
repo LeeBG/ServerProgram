@@ -115,7 +115,8 @@ public class UserController extends HttpServlet {
 			commonRespDto.setData("성공");
 			Gson gson = new Gson();
 			String respData = gson.toJson(commonRespDto);
-			
+			HttpSession session = request.getSession();
+			session.invalidate();
 			System.out.println("respData : " + respData);
 			PrintWriter out = response.getWriter();
 			out.print(respData);
